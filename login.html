@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login or Signup to Enjoy the best Movies Site</title>
+    <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    
+
+    <!-- --------------------------------------------------------- -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="position: fixed; z-index: 999; width: 100%;" ;>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <span><img src="images/logo.png" alt="Logo" width="50" height="50"
+                        class="d-inline-block align-text-top mflogo"></span>
+                <span>
+                    <p><b>Movie Finder</b></p>
+                </span>
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Pricing</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Watch History</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="box">
+            <img src="images/login2.png" class="login2img" style="padding-bottom: 40px;">
+            <div class="info" style="z-index: 100;">
+                <div class="alert alert-success success" role="alert" style="display: none;">
+                    Account Successfully Logged In! Redirecting to Home Page<div class="spinner-border text-success"
+                        role="status" style="margin-left: 4px;">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div class="alert alert-danger fail" role="alert" style="display: none;">
+                    Either account doesn't exists, or password incorrect. Try again!
+                </div>
+                <h3 class="signupheading">Welcome Back User!</h3>
+                <h2 class="signuptop">Sign In</h2>
+
+                <div id="addbox"><form id="add" autocomplete="off">
+                    <input type="email" id="emailid"
+                        style="height: 50px; border-radius: 5px; background-color: rgb(216, 216, 216); border: none; padding: 7px;"
+                        placeholder="Email Address" required>
+                    <input type="password" id="password"
+                        style="height: 50px; border-radius: 5px; background-color: rgb(216, 216, 216);border: none; padding: 7px;"
+                        placeholder="Password" required>
+
+                    <span style="padding-top: 5px; padding-right: 70px;"><input type="checkbox" class="chck"
+                            style="margin: 5px;">Remember Me</span>
+                    <button type="submit" class="btn btn-dark" style="margin-top: 40px;">Login</button>
+                </form>
+            </div>
+                <div class="create" style="padding-top: 10px;">
+                    Don't have an account?
+                    <div><a class="direct_signup" style="height: none; color: black;"><button type="button"
+                                style="border: none; padding: 7px; margin-left: 30px;" class="signup">Sign up
+                                Now!</button></a></div>
+                </div>
+            </div>
+        </div>
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Movie Finder &copy Copyright 2023</p>
+    </footer>
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, get, ref, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { getAuth, signInWithEmailAndPassword, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDDk08AeWmX9bD-M2TolwaxsCFXJ8iAz_o",
+            authDomain: "onestop-9cf30.firebaseapp.com",
+            projectId: "onestop-9cf30",
+            storageBucket: "onestop-9cf30.appspot.com",
+            messagingSenderId: "122554524092",
+            appId: "1:122554524092:web:51d369e706c59815510bb9"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        const auth = getAuth(app);
+        const dbref = ref(db);
+
+
+
+        let EmailInp = document.getElementById('emailid')
+        let PassInp = document.getElementById('password')
+        let mainForm = document.getElementById('add')
+        console.log(EmailInp.value, PassInp.value);
+
+        let SignInUser = evt => {
+            evt.preventDefault();
+
+
+
+            signInWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+                .then((credentials) => {
+
+                    // setTimeout(()=>{
+                    //     document.querySelector(".success").style.display = "hidden";
+                    // },2000)
+                    
+                    document.querySelector(".success").style.display = "block";
+                    let width=screen.width
+
+                    if(width<475){
+                        document.getElementById("addbox").style.paddingTop="108px"
+                        document.querySelector(".create").style.display="none"
+                        document.querySelector(".chck").style.paddingTop="108px"
+                        document.querySelector(".btn").style.marginTop="17px"
+                        document.querySelector(".success").style.display = "block";
+                        document.querySelector(".success").style.width = "68vw";
+
+
+                    }
+                   
+                    get(child(dbref, 'UsersAuthList/' + credentials.user.uid)).then((snapshot) => {
+                        console.log(snapshot.exists)
+                        if (snapshot.exists) {
+                            console.log(snapshot.val())
+                            sessionStorage.setItem("user-info", JSON.stringify({
+                                name: snapshot.val().name,
+                                creationTime: snapshot.val().crtTime,
+                                phnNo: snapshot.val().phnNo
+                            }))
+                            sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
+                            document.body.style.opacity = '0.5'
+                            document.body.style.rotate = '1440deg'
+                            document.body.style.transition ='rotate 2s ease-in-out'
+                            // document.body.style.transition ='opacity 2s ease-in-out'
+
+                            setTimeout(()=>{
+
+                                window.location.href = 'movies.html';
+                                
+                            },2000)
+
+                        }
+                    })
+                    get(child(dbref, 'WatchLater/' + credentials.user.uid)).then((snapshot) => {
+                        if (snapshot.exists) {
+                            // console.log(JSON.stringify(snapshot.val().watchLater))
+                            // console.log(snapshot)
+                            // console.log((snapshot.val().watchLater).join(','))
+                            sessionStorage.setItem("watchLater","")
+                            
+                        }
+                        else
+                            sessionStorage.setItem("watchLater","")
+                    })
+                    get(child(dbref, 'WatchLaterTV/' + credentials.user.uid)).then((snapshot) => {
+                        
+                            sessionStorage.setItem("watchLaterTV","")
+                    })
+
+
+
+
+
+                })
+                .catch((error) => {
+                    // FINALLY IF NO SOLUTION FOUND, Change innerHTML of querySelector to error.message
+                    document.querySelector('.fail').style.display = 'block'
+                    let width=screen.width
+                    if(width<475){
+                        
+                        document.getElementById("addbox").style.paddingTop="108px"
+                        document.querySelector(".create").style.display="none"
+                        document.querySelector(".chck").style.paddingTop="108px"
+                        document.querySelector(".btn").style.marginTop="17px"
+                        document.querySelector(".fail").style.display = "block";
+                        document.querySelector(".fail").style.width = "68vw";
+
+
+                    }
+                   
+                })
+                document.getElementById('emailid').addEventListener('click',()=>{
+                    document.querySelector(".fail").style.display = "none";
+
+                })
+                // window.location.href = 'movies.html';
+        }
+
+        mainForm.addEventListener('submit', SignInUser);
+
+     
+        
+    </script>
+    <!-- //BOOTSTRAP DATA -->
+
+    <script>
+        document.querySelector(".direct_signup").addEventListener('click',()=>{
+            document.body.style.opacity='0.8'
+            document.body.style.backgroundColor='black'
+
+            document.body.style.transition='all 1s ease'
+            setTimeout(() => {
+                window.location = 'signup.html'
+                
+            }, 1000);
+
+        })
+    </script>
+        
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

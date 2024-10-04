@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Now</title>
+    <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="signup.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<style>
+    .navbar-brand p {
+        padding: 13px 0 0 2px;
+    }
+
+    .navbar-brand {
+        display: flex;
+    }
+
+
+
+    .mflogo {
+        transition: all 0.5s ease-in-out;
+    }
+
+    .mflogo:hover {
+        transform: rotate(360deg);
+    }
+</style>
+
+<body>
+    
+
+    <!-- <nav class="navbar bg-body-tertiary" style="position: fixed; width: 100% ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <span><img src="images/logo.png" alt="Logo" width="50" height="50"
+                        class="d-inline-block align-text-top mflogo"></span>
+                <span>
+                    <p><b>Movie Finder</b></p>
+                </span>
+
+            </a>
+        </div>
+    </nav> -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="position: fixed; z-index: 999; width: 100%;" ;>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <span><img src="images/logo.png" alt="Logo" width="50" height="50"
+                        class="d-inline-block align-text-top mflogo"></span>
+                <span>
+                    <p><b>Movie Finder</b></p>
+                </span>
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Pricing</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Watch History</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="box">
+            <img src="images/login2.png" class="login2img" style="padding-bottom: 40px;">
+            <div class="info" style="z-index: 100;">
+                <div class="alert alert-success success" role="alert" style="display: none; width: 25vw;">
+                    Account Successfully created! Return to <a href="login.html">login page</a> to continue
+                </div>
+                <div class="alert alert-danger err1" role="alert" style="display: none; width: 25vw;">
+                    Either account already exists or password incorrect! Either return to <a href="login.html">login
+                        page</a> or use another email ID
+                </div>
+                <div class="alert alert-danger err3" role="alert" style="display: none;">
+                    Password should be atleast 6 characters!
+                </div>
+                <div class="alert alert-danger err2" role="alert" style="display: none;">
+                    Invalid email ID. Try again!
+                </div>
+                <h2 class="signupheading">Sign Up Now!</h2>
+                <h6 class="signuptop" style="text-align: center;">To Enjoy the Benefits You are Missing out!</h6>
+                <div id="addbox">
+                    <form id="add" style="display: flex; flex-direction: column; justify-content: center;">
+                        <input type="text" id="name"
+                            style="height: 50px; border-radius: 5px; background-color: rgb(216, 216, 216);border: none; padding: 7px; margin: 5px;"
+                            placeholder="Enter your full name" required>
+                        <input type="text" id="phoneNo"
+                            style="height: 50px; border-radius: 5px; background-color: rgb(216, 216, 216);border: none; padding: 7px; margin: 5px;"
+                            placeholder="Contact Number ">
+                        <input type="email" id="emailid"
+                            style="height: 50px; border-radius: 5px; background-color: rgb(216, 216, 216); border: none; padding: 7px; margin: 5px"
+                            placeholder="Email Address" required>
+                        <input type="password" id="password"
+                            style="height: 50px; border-radius: 5px; background-color: rgb(216, 216, 216);border: none; padding: 7px; margin: 5px"
+                            placeholder="Enter Password" required>
+                        <button type="submit" class="btn btn-dark" style="margin-top: 10px;">Create account</button>
+                    </form>
+                </div>
+                <div class="create" style="padding-top: 10px;">
+                    Or sign-up using:
+                    <div class="imgs">
+                        <img id="gglimg" src="images/ggl.png" height="33px" width="33px" alt="">
+                        <img src="images/fb.png" height="30px" width="30px" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Movie Finder &copy Copyright 2023</p>
+    </footer>
+
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { getAuth, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDDk08AeWmX9bD-M2TolwaxsCFXJ8iAz_o",
+            authDomain: "onestop-9cf30.firebaseapp.com",
+            projectId: "onestop-9cf30",
+            storageBucket: "onestop-9cf30.appspot.com",
+            messagingSenderId: "122554524092",
+            appId: "1:122554524092:web:51d369e706c59815510bb9"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        const auth = getAuth(app);
+
+
+        let NameInp = document.getElementById('name')
+        let EmailInp = document.getElementById('emailid')
+        let PassInp = document.getElementById('password')
+        let phnNoInp = document.getElementById('phoneNo')
+        let mainForm = document.getElementById('add')
+
+
+        // console.log(NameInp.value, EmailInp.value, PassInp.value)
+        let watchLaterList = ['none']
+        let registerUser = evt => {
+            document.querySelector(".success").style.display = "none";
+            evt.preventDefault();
+            createUserWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+                .then((credentials) => {
+                    console.log(credentials.user)
+                    set(ref(db, 'UsersAuthList/' + credentials.user.uid), {
+                        name: NameInp.value,
+                        crtTime: credentials.user.metadata.creationTime,
+                        phnNo: phnNoInp.value,
+                        watchLater: watchLaterList
+
+                    })
+                    document.querySelector(".success").style.display = "block";
+                    let width=screen.width
+
+                    if(width<475){
+                        document.getElementById("addbox").style.paddingTop="73px"
+                        document.querySelector(".create").style.display="none"
+                        // document.querySelector(".chck").style.paddingTop="108px"
+                        document.querySelector(".btn").style.marginTop="11px"
+                        document.querySelector(".success").style.display = "block";
+                        document.querySelector(".success").style.marginBottom = "81px";
+                        document.querySelector(".success").style.width = "68vw";
+
+
+                    }
+
+
+                })
+                .catch((error) => {
+                    console.log(error)
+
+                    // FINALLY IF NO SOLUTION FOUND, Change innerHTML of querySelector to error.message
+                    var err = error.message
+                    document.querySelector(".err1").style.display = "block";
+                    // if (err = "Firebase: Error (auth/invalid-email).") { document.querySelector(".err2").style.display = "block"; }
+                    // else if (err = "Firebase: Error (auth/email-already-in-use).") { document.querySelector(".err1").style.display = "block"; }
+                    // else if (err = "Firebase: Password should be at least 6 characters (auth/weak-password).") { document.querySelector(".err3").style.display = "block"; }
+                    // alert(error.message)
+                })
+        }
+
+        mainForm.addEventListener('submit', registerUser);
+
+
+        // GOOGLE LOGIN
+        //    import {} from "firebase/auth";
+        const provider = new GoogleAuthProvider();
+        document.getElementById("gglimg").addEventListener('click', (e) => {
+            // signInWithRedirect(auth, provider)
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    const credential = GoogleAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    // The signed-in user info.
+                    const user = result.user;
+                    window.location.href = 'movies.html'
+                    // IdP data available using getAdditionalUserInfo(result)
+                    // ...
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential = GoogleAuthProvider.credentialFromError(error);
+                    // ...
+                })
+        })
+    </script>
+    <!-- //BOOTSTRAP DATA -->
+        
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        var lastScrollTop = 0;
+                navbar = document.querySelector(".navbar");
+                window.addEventListener("scroll", () => {
+                    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    if (scrollTop > lastScrollTop)
+                        navbar.style.top = "-90px";
+                    else
+                        navbar.style.top = "0 "
+                    lastScrollTop = scrollTop
+                })
+    </script>
+
+
+
+</body>
+
+</html>

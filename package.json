@@ -1,0 +1,11 @@
+{
+  "name": "movie-finder",
+  "version": "1.0.0",
+  "description": "This website is designed to fetch movie information from The Movie Database (TMDb) API and present it in an engaging way for users. It allows users to explore movies from both Bollywood and Hollywood, along with various genres. The website is built using HTML, CSS, JavaScript, and Bootstrap for responsive design.",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

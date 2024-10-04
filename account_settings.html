@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Your Account</title>
+    <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Sen:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="movies.css">
+    <link rel="stylesheet" href="account_settings.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+        <style>
+            .dropdown-prof{
+                margin-right: 50px;
+            }
+        </style>
+</head>
+
+<body>
+
+    <!-- //BOOTSTRAP DATA -->
+
+
+    <!-- --------------------------------------------------------- -->
+
+
+    <!--  -->
+
+
+
+
+
+    <div class="signout-out">
+        <div class="signout-win">
+            <div style="background-color: yellowgreen; margin: 0; padding: 0; height: 5vh; text-align: center;">
+                <p style="padding-top: 1vh; color: black;">Signout Window</p><button type="button"
+                    class="btn-close signout-close" aria-label="Close"></button>
+            </div>
+            <p style="padding: 20px;">Are you sure you want to signout?</p>
+            <button type="button" class="signout-yes signout-btns">Sign Out</button><button type="button"
+                class="cancel signout-btns">Cancel</button>
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="position: fixed; z-index: 999; width: 100%;" ;>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="movies.html">
+                <span><img src="images/logo.png" alt="Logo" width="50" height="50"
+                        class="d-inline-block align-text-top mflogo"></span>
+                <span>
+                    <p><b>Movie Finder</b></p>
+                </span>
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="movies.html" style="width: 90px;border-radius: 10px; text-align: center;">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="many.html" style="width: 90px;border-radius: 10px;text-align: center;">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tv_series.html" style="width: 90px;border-radius: 10px;">TV Series</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="watchlist.html" style="width: 90px;border-radius: 10px;">WatchList</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="account_settings.html" style="min-width: 90px;background-color: yellowgreen;border-radius: 10px;">Account Settings</a>
+                    </li>
+                </ul>
+
+
+            </div>
+            <div class="profile">
+                <span style="display: flex;"><img id="prof-img" src="images/user.png" alt="" height="38px" width="38px"
+                        style="border-radius: 50%; margin-top: 5px;">
+                    <p style="padding: 6px 0 0 6px;">
+                    <div class="dropdown dropdown-prof">
+                        <button class="dropbtn"><span id="usernm">Username</span><i class="fa-solid fa-caret-down arr"
+                                style="margin: 10px 0 0 5px; cursor: pointer;"></i></button>
+                        <div class="dropdown-content">
+                            <a href="help.html">Help</a>
+                            <button type="button"
+                                style="border: none; outline: none; padding-left: 15px; padding-bottom: 8px;padding-top: 3px; width: 10vw; text-align: start;"
+                                id="signout-btn">Signout</button>
+
+                        </div>
+                    </div>
+                    </p>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container" style="font-family: sans-serif; padding: 10vh 18vw; position: relative;">
+
+        <h2 class="setthd" style="margin: 28px 0 10px 19px; "><b><i class="fa-solid fa-gear sett"
+                    style="padding-right: 8px;"></i>Account & Settings</b> </h2>
+        <br>
+        <div style="display: flex; justify-content: center;">
+            <div class="alert alert-warning" role="alert" style="width: 80vw; text-align: center;">
+                <i class="fa-solid fa-triangle-exclamation" style="padding-right: 5px;"></i>Please ensure that all your
+                information is correct so that we can provide content according to your preferences.
+            </div>
+        </div>
+
+        <div class="content">
+            <h2><i class="fa-solid fa-file-pen" style="padding-right: 10px;"></i>PERSONAL DETAILS</h2>
+            <hr>
+            <div style="margin: 40px 0 10px 0;"><img style="border-radius: 50%;" src="images/user.png" height="150px"
+                    alt=""></div>
+            <div class="email"><i class="fa-regular fa-envelope env"></i><span class="emid"></span></div>
+
+            <div class="prof-info">
+
+                <span>Your Full Name : </span>
+                <span id="fname"></span>
+
+                <span>Your Email ID:</span>
+                <span class="emid"></span>
+
+                <span>Your Contact Number : </span>
+                <span id="cno">Add</span>
+
+                <span>Account Created on : </span>
+                <span><span id="accsince"></span></span>
+                <br><br><br>
+
+            </div>
+
+
+
+
+            <div class="playback-settings">
+                <h2><i class="fa-solid fa-circle-play" style="padding-right: 10px;"></i>PLAYBACK SETTINGS</h2>
+                <hr>
+
+                <div class="prof-info" style="padding: 0 15vw;">
+
+
+                    <span><button type="button" style="background: none; border: none;" class="btn btn-secondary"
+                            data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Once a media ends, another similar type media starts playing.">
+                            <i class="fa-solid fa-question"
+                                style="background-color: black; width: 20px; height: 20px;border-radius: 50%;"></i>
+                        </button>Autoplay :</span>
+
+                    <span style="padding-top:12px ;"><!-- Rounded switch -->
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label></span>
+
+                    <span><button type="button" style="background: none; border: none;" class="btn btn-secondary"
+                            data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="custom-tooltip"
+                            data-bs-title="This will decide whether to show X rated movies or not.">
+                            <i class="fa-solid fa-question"
+                                style="background-color: black; width: 20px; height: 20px;border-radius: 50%;"></i>
+                        </button>Are you 18 or older?</span>
+                    <span style="padding-top:12px ;"><!-- Rounded switch -->
+                        <label class="switch">
+                            YES
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label></span>
+
+                    <span>Clear WatchLater List?</span>
+                    <span>
+                        <button id="clearWL" style="padding: 1px 8px; border-radius: 8px;">Clear</button><div class="alert alert-success success clearSuccess" role="alert" style="display: none;">
+                            Cleared Successfully
+                        </div></span>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul> -->
+    </div>
+
+
+    <!-- <i class="fa-solid fa-envelope env"></i> -->
+
+
+
+
+    <footer style="height: 80px;">
+        <p>Movie Finder &copy Copyright 2023</p>
+    </footer>
+
+    <script>
+
+
+        // const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        // const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        // HOVER ANIMATION ON ENVELOPE OF EMAIL
+        // document.querySelector(".arr").style.display = 'none'
+
+
+        document.querySelector(".env").addEventListener("mouseover", function () {
+
+            document.querySelector(".env").classList.remove("fa-regular");
+            document.querySelector(".env").classList.add("fa-solid");
+        });
+        document.querySelector(".env").addEventListener("mouseout", function () {
+
+            document.querySelector(".env").classList.remove("fa-solid");
+            document.querySelector(".env").classList.add("fa-regular");
+        });
+
+
+        let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"))
+        let UserInfo = JSON.parse(sessionStorage.getItem("user-info"))
+
+        console.log(UserCreds)
+        console.log(UserInfo) // CONTAINS NAME AND CREATION TIME AND PHONE NUMBER
+        document.querySelectorAll((".emid")).forEach(element => {
+            element.innerHTML = UserCreds.email
+        });
+        document.getElementById("fname").innerHTML = UserInfo.name
+        document.getElementById("cno").innerHTML = UserInfo.phnNo
+        document.getElementById("accsince").innerHTML = UserInfo.creationTime
+
+
+        let userN = document.getElementById("usernm")
+
+        userN.innerText = UserInfo.name
+
+        let signoutBtn = document.getElementById("signout-btn")
+
+
+        let signout = () => {
+            sessionStorage.removeItem("user-creds");
+            sessionStorage.removeItem("user-info");
+            window.location.href = "login.html"
+        }
+
+        let CheckCred = () => {
+            if (!sessionStorage.getItem("user-creds"))
+                window.location.href = 'login.html'
+            else
+                userN.innerText = UserInfo.name;
+        }
+        window.addEventListener('load', CheckCred)
+        signoutBtn.addEventListener('click', () => {
+            document.querySelector(".signout-out").style.display = "flex"
+            document.querySelector(".main-container").style.opacity = "0.5"
+            document.querySelector(".signout-close").addEventListener('click', () => {
+                window.location.href = 'movies.html'
+            })
+            document.querySelector(".cancel").addEventListener('click', () => {
+                window.location.href = 'movies.html'
+            })
+            document.querySelector(".signout-yes").addEventListener('click', signout)
+
+
+        })
+
+
+        document.getElementById("clearWL").addEventListener('click',()=>{
+            sessionStorage.removeItem('watchLater')
+            sessionStorage.removeItem('watchLaterTV')
+            document.querySelector(".clearSuccess").style.display = 'block'
+            document.querySelector("#clearWL").style.backgroundColor = 'gray'
+            setTimeout(() => {
+                document.querySelector(".clearSuccess").style.display = 'none'
+                document.querySelector("#clearWL").style.backgroundColor = 'white'
+
+            }, 4000);
+        })
+    </script>
+    <script src="https://kit.fontawesome.com/16b9760f00.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script> -->
+
+
+
+</body>
+
+</html>
